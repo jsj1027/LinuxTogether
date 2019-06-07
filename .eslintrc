@@ -13,8 +13,17 @@
         "ecmaVersion": 2018
     },
     "rules": {
-        "indent":["error", 2],
-        "space-before-function-paren": ["error", "never"],
-        "semi": ["error", "always"]
+        "indent": [
+            "error",
+            2
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
     }
 }
