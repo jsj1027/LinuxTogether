@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 
 function sh(cmd) {
-  return function() {
+  return function () {
     exec(cmd, (err, stdout, stderr) => {
       if (err) {
         Promise.reject(err);
@@ -12,3 +12,7 @@ function sh(cmd) {
 }
 //https://stackoverflow.com/questions/1880198/how-to-execute-shell-command-in-javascript
 // but put main in main.js
+
+module.exports = {
+  sh
+};
