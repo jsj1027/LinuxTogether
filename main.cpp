@@ -1,9 +1,10 @@
-#include <gtk+-3.24.8/gtkmm.h>
+#include <gtkmm-3.0/gtkmm.h>
 
+// compile with gtklibs   g++ main.ccp -o main.cpp `pkg-config gtkmm-3.0 --cflags --libs`
 int main(int argc, char* argv[]) {
     Gtk::Main kit(argc, argv);
 
-    Gtk::MainWindow window;
+    Gtk::Window window;
 
     Gtk::Main::run(window);
 
