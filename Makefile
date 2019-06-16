@@ -1,7 +1,9 @@
 all: main
 	echo All done
 
-main: main.cpp
+src: src/testScript.cpp
+
+main: main.cpp src
 	g++ $< -o lxtg `pkg-config gtkmm-3.0 --cflags --libs`
 
 clean:
