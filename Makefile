@@ -1,10 +1,11 @@
+CXX = g++
+FLAGS = -Wall -g
+
 all: main
 	echo All done
 
-src: src/testScript.cpp
-
-main: main.cpp src
-	g++ $< -o lxtg `pkg-config gtkmm-3.0 --cflags --libs`
+main: main.cpp
+	$(CXX) $(FLAGS) $< -o lxtg `pkg-config gtkmm-3.0 --cflags --libs` src/testScript.cpp
 
 clean:
-	rm lxtg
+	rm lxtg test.txt
