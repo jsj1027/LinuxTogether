@@ -1,4 +1,4 @@
-#include <gtk+-3.24.8/gtkmm.h>
+#include <gtkmm-3.0/gtkmm.h>
 
 int main(int argc, char* argv[]) {
     Gtk::Main kit(argc, argv);
