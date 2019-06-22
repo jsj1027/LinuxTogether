@@ -1,25 +1,35 @@
 const { app, BrowserWindow } = require('electron');
-const { sh } = require('./shell/script');
+
+let win;
 
 function createWindow() {
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true
-    }
-  });
+    win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
 
-  win.loadFile('index.html');
+    win.loadFile('index.html');
+
+    // win.webContents.openDevTools();
+
+    win.on('closed', () => {
+        win = null;
+    });
 }
-
-async function main() {
-  let { stdout } = await sh('ls');
-  for (let line of stdout.split('\n')) {
-    console.log(`ls: ${line}`);
-  }
-}
-
-main();
 
 app.on('ready', createWindow);
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
+});
+
+app.on('activate', () => {
+    if (win === null) {
+        createWindow();
+    }
+});
