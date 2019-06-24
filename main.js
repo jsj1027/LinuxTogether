@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require('electron');
-
+const { callCmd } = require('./src/script');
 let win;
 
 function createWindow() {
@@ -33,3 +33,7 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+callCmd('apt list --installed > test.txt');
+//.then(output => { console.log(`${output}`); });
+callCmd('ls');
