@@ -36,10 +36,10 @@ app.on('activate', () => {
     }
 });
 
-function setUpData() {
-    callCmd('apt list --installed > ./data/apps.txt');
-    readInFile();
-}
+callCmd('apt list --installed')
+    .then((data) => {
+        data.split('\n')
+    });
+readInFile();
 
-setUpData();
 // callCmd('lsd');
