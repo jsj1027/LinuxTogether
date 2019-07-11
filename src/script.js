@@ -5,7 +5,7 @@ function callCmd(command) {
 
     console.log(`lxtg is executing command ${command}`);
     // function puts(error, stdout, stderr) { sys.puts(stdout); }
-    exec(`${command}`, ((error, stdout, stderr) => {
+    return exec(`${command}`, ((error, stdout, stderr) => {
         if (error !== null) {
             console.log(`Error: ${error}`);
         }
