@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require('electron');
+const { callCmd } = require('./src/script');
+const { readInFile } = require('./src/prepFile');
 
 let win;
 
@@ -33,3 +35,16 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+const cData =
+    callCmd('apt list --installed | tee data/apps.txt')
+        .then((data) => {
+            return data.replace('Listing...\n', '').split('\n');
+        });
+
+cData.then((data) => {
+    console.log(data);
+});
+// readInFile();
+
+// callCmd('lsd');x

@@ -1,5 +1,5 @@
 node_modules/
 ./lxtg
-.vscode
 .vscode/
 lxtg
+data/apps.txt

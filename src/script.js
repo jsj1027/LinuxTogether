@@ -1,18 +1,18 @@
+/* eslint-disable no-console */
 const { exec } = require('child_process');
 
-function sh(cmd) {
-    return function() {
-        exec(cmd, (err, stdout, stderr) => {
-            if (err) {
-                Promise.reject(err);
+function callCmd(command) {
+    return new Promise((resolve, reject) => {
+        console.log(`lxtg is executing command ${command}`);
+        return exec(command, ((error, stdout) => {
+            if (error !== null) {
+                return reject(error);
             }
-            return { stdout, stderr };
-        });
-    };
+            return resolve(stdout);
+        }));   
+    });
 }
-//https://stackoverflow.com/questions/1880198/how-to-execute-shell-command-in-javascript
-// but put main in main.js
 
 module.exports = {
-    sh
+    callCmd
 };
