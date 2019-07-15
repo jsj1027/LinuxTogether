@@ -42,9 +42,19 @@ const cData =
             return data.replace('Listing...\n', '').split('\n');
         });
 
-cData.then((data) => {
-    console.log(data);
-});
+function parseDate(cData) {
+    data = cData.then((data) => { return data; });
+    data.then((d) => console.log(d));
+    console.log(typeof(data));
+    data.forEach(function (part, index) {
+        app = part.split('/');
+        data[index] = app[0];
+    });
+    return data;
+}
+
+data = parseDate(cData);
+data.then(d => { console.log(d); });
 // readInFile();
 
 // callCmd('lsd');x
