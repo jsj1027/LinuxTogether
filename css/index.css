@@ -6,14 +6,3 @@ h1{
     color:white;
     text-align: center;
 }
-
-.items{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: red;
-    padding: 15px 32px;
-    text-align: right;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
