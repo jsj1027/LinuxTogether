@@ -36,25 +36,25 @@ app.on('activate', () => {
     }
 });
 
-const cData =
-    callCmd('apt list --installed | tee data/apps.txt')
-        .then((data) => {
-            return data.replace('Listing...\n', '').split('\n');
-        });
+// const cData =
+//     callCmd('apt list --installed | tee data/apps.txt')
+//         .then((data) => {
+//             return data.replace('Listing...\n', '').split('\n');
+//         });
 
-function parseDate(cData) {
-    data = cData.then((data) => { return data; });
-    data.then((d) => console.log(d));
-    console.log(typeof(data));
-    data.forEach(function (part, index) {
-        app = part.split('/');
-        data[index] = app[0];
-    });
-    return data;
-}
+// function parseDate(cData) {
+//     data = cData.then((data) => { return data; });
+//     data.then((d) => console.log(d));
+//     console.log(typeof(data));
+//     data.forEach(function (part, index) {
+//         app = part.split('/');
+//         data[index] = app[0];
+//     });
+//     return data;
+// }
 
-data = parseDate(cData);
-data.then(d => { console.log(d); });
+// data = parseDate(cData);
+// data.then(d => { console.log(d); });
 // readInFile();
 
 // callCmd('lsd');x
